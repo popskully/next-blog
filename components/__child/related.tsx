@@ -14,7 +14,7 @@ export default function Related() {
       <section className="pt-20">
         <h1 className="font-bold text-3xl py-10">Related</h1>
         <div className="flex flex-col gap-10">
-          {data.map((value, index) => (
+          {data.map((value: any, index: any) => (
             <Post key={index} data={value}></Post>
           ))}
         </div>
@@ -23,7 +23,7 @@ export default function Related() {
   );
 }
 
-function Post({ data }) {
+function Post({ data }: { data: any }) {
   const { id, title, description, category, img, published, author } = data;
   return (
     <div className="flex gap-5">

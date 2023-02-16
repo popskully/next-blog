@@ -3,7 +3,15 @@ import Link from "next/link";
 import { GoVerified } from "react-icons/go";
 import { FaCheckCircle } from "react-icons/fa";
 
-export default function author({ name, img, designation }) {
+export default function author({
+  name,
+  img,
+  designation,
+}: {
+  name: string;
+  img: string;
+  designation: string;
+}) {
   if (!name && !img) return <></>;
 
   return (

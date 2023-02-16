@@ -9,7 +9,7 @@ import Error from "../../components/__child/error";
 import { useRouter } from "next/router";
 import { SWRConfig } from "swr";
 
-export default function Page({ fallback }) {
+export default function Page({ fallback }: { fallback: any }) {
   const router = useRouter();
   const { postId } = router.query;
   const { data, isLoading, isError } = fetcher(`api/posts/${postId}`);
@@ -24,6 +24,16 @@ export default function Page({ fallback }) {
   );
 }
 
+interface ArticleProps {
+  title: any;
+  subtitle: any;
+  description: any;
+  category: any;
+  img: any;
+  published: any;
+  author: any;
+}
+
 function Article({
   title,
   subtitle,
@@ -32,7 +42,7 @@ function Article({
   img,
   published,
   author,
-}) {
+}: ArticleProps) {
   return (
     <Format>
       <section className="container mx-auto md:px-2 py-16 w-1/2">
@@ -64,7 +74,7 @@ function Article({
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: { params: any }) {
   const posts = await getPost(params.postId);
 
   return {
@@ -78,7 +88,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const posts = await getPost();
-  const paths = posts.map((value) => {
+  const paths = posts.map((value: any) => {
     return {
       params: {
         postId: value.id.toString(),

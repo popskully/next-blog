@@ -33,7 +33,7 @@ export default function section1() {
             delay: 5000,
           }}
         >
-          {data.map((value, index) => (
+          {data.map((value: any, index: any) => (
             <SwiperSlide key={index}>
               <Slide data={value}></Slide>
             </SwiperSlide>
@@ -44,7 +44,7 @@ export default function section1() {
   );
 }
 
-function Slide({ data }) {
+function Slide({ data }: { data: any }) {
   const { id, title, description, category, img, published, author } = data;
   return (
     <div className="grid md:grid-cols-2">

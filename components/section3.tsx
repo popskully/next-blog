@@ -31,7 +31,7 @@ export default function () {
           delay: 5000,
         }}
       >
-        {data.map((value, index) => (
+        {data.map((value: any, index: any) => (
           <SwiperSlide key={index}>
             <Post data={value}></Post>
           </SwiperSlide>
@@ -41,7 +41,7 @@ export default function () {
   );
 }
 
-function Post({ data }) {
+function Post({ data }: { data: any }) {
   const { id, title, description, category, img, published, author } = data;
   return (
     <div className="grid">

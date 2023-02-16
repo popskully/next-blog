@@ -36,7 +36,7 @@ export default function section4() {
   );
 }
 
-function Post({ data }) {
+function Post({ data }: { data: any }) {
   // destructure the data
   const { id, title, description, category, img, published, author } = data;
   return (

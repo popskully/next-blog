@@ -19,7 +19,7 @@ export default function section2() {
       <h1 className="font-bold text-4xl py-12 text-center">Lastest Post</h1>
       {/*grid column*/}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-14">
-        {data.map((value, index) => (
+        {data.map((value: any, index: any) => (
           <Post data={value} key={index}></Post>
         ))}
       </div>
@@ -27,7 +27,7 @@ export default function section2() {
   );
 }
 
-function Post({ data }) {
+function Post({ data }: { data: any }) {
   const { id, title, description, category, img, published, author } = data;
   return (
     <div className="item">
